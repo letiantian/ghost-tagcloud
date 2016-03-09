@@ -1,4 +1,5 @@
-#!node
+#!/usr/bin/env node
+
 
 'use strict';
 
@@ -119,7 +120,7 @@ function renderTagCloud(tags, config) {
         tag.fontColor = startColor.mix(endColor, ratio).toString();
         tag.fontUnit = config.fontUnit;
     }
-    var tpl = '{% for tag in tags %}<a href="/tags/{{ tag.slug }}/" style="font-size: {{ tag.fontSize }}{{ tag.fontUnit }}; color: {{ tag.fontColor }}">{{ tag.name }}</a>{% endfor %}';
+    var tpl = '{% for tag in tags %}\n<a href="/tags/{{ tag.slug }}/" style="font-size: {{ tag.fontSize }}{{ tag.fontUnit }}; color: {{ tag.fontColor }}">{{ tag.name }}</a>{% endfor %}';
 
     return swig.render(tpl, { locals: { tags: tags } });
 }
